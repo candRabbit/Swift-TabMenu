@@ -3,7 +3,7 @@
 ***
 ####How to Use 
 
-`
+```swift
 class ViewController: UIViewController,TabMenuDelegate{
 
    
@@ -33,4 +33,4 @@ class ViewController: UIViewController,TabMenuDelegate{
     }
 
 }
-`
+```
