@@ -1,5 +1,8 @@
 #### Swift-TabMenu
+***
 ![](https://github.com/candRabbit/Swift-TabMenu/blob/master/screenshot/tab-menu.gif)
+***
+你可以放入更多的TAB,不用担心显示不出来,因为它使可以滑动的
 ***
 ####How to Use 
 
