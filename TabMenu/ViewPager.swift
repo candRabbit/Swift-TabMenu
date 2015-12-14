@@ -8,10 +8,11 @@
 
 import UIKit
 
-class ViewPager: UIScrollView,UIScrollViewDelegate,TabLayoutDelegate{
+class ViewPager: UIScrollView,UIScrollViewDelegate,TabDelegate{
 
     
     var viewPagerDelegate:ViewPagerDelegate?
+    var tabScrollDelegate:TabScrollDelegate?
     
     var controllers:[UIViewController]?
     var controller:UIViewController?
@@ -38,7 +39,12 @@ class ViewPager: UIScrollView,UIScrollViewDelegate,TabLayoutDelegate{
         showsHorizontalScrollIndicator = false
         showsVerticalScrollIndicator = false
         pagingEnabled = true
-        contentSize = CGSizeMake(self.bounds.width*CGFloat(controllers!.count), 0)
+      
+       
+    }
+    
+    override func layoutSubviews() {
+         contentSize = CGSizeMake(self.bounds.width*CGFloat(controllers!.count), 0)
     }
     
     private func initController(){
@@ -83,9 +89,13 @@ class ViewPager: UIScrollView,UIScrollViewDelegate,TabLayoutDelegate{
             currentPage = Int(nextPage)
             self.viewPagerDelegate?.scrolled(currentPage)
         }
+        tabScrollDelegate?.scrollViewDidScroll(scrollView)
 
         
     }
+    
+    
+    
     
     func showIndex(index: Int) {
         
@@ -94,7 +104,7 @@ class ViewPager: UIScrollView,UIScrollViewDelegate,TabLayoutDelegate{
     }
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-       
+       tabScrollDelegate?.scrollViewDidEndDecelerating(scrollView)
     }
 }
 

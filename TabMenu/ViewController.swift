@@ -18,11 +18,11 @@ class ViewController: UIViewController,TabMenuDelegate{
         super.viewDidLoad()
         let tabMenu = TabMenu(frame: CGRectMake(0, 64, self.view.bounds.width, self.view.bounds.height-64))
         tabMenu.delegate = self
-        tabMenu.initView(self)
+        tabMenu.initTab(.BottomLine,controller: self)
         self.view.addSubview(tabMenu)
         self.automaticallyAdjustsScrollViewInsets = false
-     
-    
+      
+        
    
     }
     
@@ -48,11 +48,6 @@ class ViewController: UIViewController,TabMenuDelegate{
         
         return controllers
     }
-    
-
-        
-
-
 
 }
 

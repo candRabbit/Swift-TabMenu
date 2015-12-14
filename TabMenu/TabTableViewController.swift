@@ -23,7 +23,7 @@ class TabTableViewController: UITableViewController {
         
         self.tableView.estimatedRowHeight = self.tableView.rowHeight
         self.tableView.rowHeight = UITableViewAutomaticDimension
-   
+      
 //        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
 
         // Uncomment the following line to preserve selection between presentations

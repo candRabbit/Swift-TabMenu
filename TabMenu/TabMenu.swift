@@ -13,6 +13,8 @@ class TabMenu: UIView {
     var delegate:TabMenuDelegate?
     var viewPager:ViewPager?
     var tabLayout:TabLayout?
+    var nomalTab:NormalTab?
+    var lineTab:LineTab?
     
     var tabViewHeight:CGFloat = 44
     
@@ -21,19 +23,47 @@ class TabMenu: UIView {
        
     }
     
-    func initView(controller:UIViewController){
-
-        tabLayout = TabLayout(frame: CGRectMake(0, 0, self.bounds.width, tabViewHeight), with: delegate!.getTitles())
-        tabLayout!.backgroundColor = UIColor(red: 205.0/255, green: 205.0/255, blue: 205.0/255, alpha: 0.5)
+    func initTab(tabStyle:TabMenuStyle = TabMenuStyle.Normal,controller:UIViewController){
         
-        viewPager = ViewPager(frame: CGRectMake(0, tabViewHeight, self.bounds.width, self.bounds.height - tabViewHeight), with: delegate!.getControllers(), and: controller)
+        var tabRect:CGRect
         
-        viewPager!.viewPagerDelegate = tabLayout
-        tabLayout!.tabLayoutDelegate = viewPager
+        viewPager = ViewPager(frame:CGRectMake(0, 0, 0, 0), with: delegate!.getControllers(), and:controller)
+     
+        switch tabStyle{
+            
+            case .Normal:
+            
+               tabRect = CGRectMake(0, 0, 100, 30)
+               viewPager!.frame = CGRectMake(0, 0, self.bounds.width, self.bounds.height)
+               nomalTab = NormalTab(frame:tabRect, with:delegate!.getTitles())
+               viewPager?.viewPagerDelegate = nomalTab
+               controller.navigationItem.titleView = nomalTab
+            
+             case .Scroll:
+            
+                tabRect = CGRectMake(0, 0, self.bounds.width, tabViewHeight)
+                viewPager!.frame = CGRectMake(0, tabViewHeight, self.bounds.width, self.bounds.height - tabViewHeight)
+                tabLayout = TabLayout(frame: tabRect, with: delegate!.getTitles())
+                tabLayout?.backgroundColor = UIColor.whiteColor()
+                viewPager?.viewPagerDelegate = tabLayout
+                tabLayout?.tabDelegate = viewPager
+                addSubview(tabLayout!)
+         
+             case .BottomLine:
+                tabRect = CGRectMake(0, 0, self.bounds.width, tabViewHeight)
+                viewPager!.frame = CGRectMake(0, tabViewHeight, self.bounds.width, self.bounds.height - tabViewHeight)
+                lineTab = LineTab(frame: tabRect, with: delegate!.getTitles())
+                lineTab?.backgroundColor = UIColor.whiteColor()
+                lineTab?.tabDelegate = viewPager
+                viewPager?.tabScrollDelegate = lineTab
+                addSubview(lineTab!)
+            
+        }
         
-        addSubview(tabLayout!)
         addSubview(viewPager!)
+    
     }
+    
 
     required init?(coder aDecoder: NSCoder) {
        super.init(coder: aDecoder)
@@ -45,5 +75,10 @@ protocol TabMenuDelegate{
     
     func getTitles()->[String]
     func getControllers()->[UIViewController]
+}
+
+enum TabMenuStyle{
+    
+    case Normal,Scroll,BottomLine
 }
 

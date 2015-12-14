@@ -10,7 +10,7 @@ import UIKit
 
 class TabLayout: UICollectionView,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,ViewPagerDelegate{
 
-    var tabLayoutDelegate:TabLayoutDelegate?
+    var tabDelegate:TabDelegate?
     var textNomalColor = UIColor.grayColor()
     var textSelectColor = UIColor(red: 254.0/255, green: 134.0/255, blue: 61.0/255, alpha: 1)
     private var titles:[String]?
@@ -78,7 +78,7 @@ class TabLayout: UICollectionView,UICollectionViewDelegate,UICollectionViewDataS
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         scrolled(indexPath.row)
-        tabLayoutDelegate?.showIndex(indexPath.row)
+        tabDelegate?.showIndex(indexPath.row)
        
     }
     
@@ -114,7 +114,4 @@ class TabLayout: UICollectionView,UICollectionViewDelegate,UICollectionViewDataS
 
 }
 
-protocol TabLayoutDelegate{
-    
-    func showIndex(index:Int)
-}
+
