@@ -13,12 +13,13 @@ let width = UIScreen.mainScreen().bounds.width
 
 class ViewController: UIViewController,TabMenuDelegate{
 
+    var style:TabMenuStyle?
    
     override func viewDidLoad() {
         super.viewDidLoad()
         let tabMenu = TabMenu(frame: CGRectMake(0, 64, self.view.bounds.width, self.view.bounds.height-64))
         tabMenu.delegate = self
-        tabMenu.initTab(.BottomLine,controller: self)
+        tabMenu.initTab(style:style!,controller: self)
         self.view.addSubview(tabMenu)
         self.automaticallyAdjustsScrollViewInsets = false
       

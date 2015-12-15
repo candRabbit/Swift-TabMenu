@@ -12,7 +12,8 @@ class TabLayout: UICollectionView,UICollectionViewDelegate,UICollectionViewDataS
 
     var tabDelegate:TabDelegate?
     var textNomalColor = UIColor.grayColor()
-    var textSelectColor = UIColor(red: 254.0/255, green: 134.0/255, blue: 61.0/255, alpha: 1)
+    var textSelectColor = getColor(36, green: 206, blue: 252)
+    
     private var titles:[String]?
     var currentPage = 0{
         

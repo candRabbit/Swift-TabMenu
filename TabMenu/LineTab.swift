@@ -11,6 +11,18 @@ import UIKit
 class LineTab: UIView,TabScrollDelegate{
 
     var tabDelegate:TabDelegate?
+    var currentPage = 0
+    var padding:CGFloat = 0.0
+    var lineColor = getColor(36, green: 206, blue: 252){
+        
+        didSet{
+            
+            if lineColor != oldValue{
+                
+                setNeedsDisplay()
+            }
+        }
+    }
     var indicatorx:CGFloat = 0.0{
         
         didSet{
@@ -20,9 +32,8 @@ class LineTab: UIView,TabScrollDelegate{
             }
         }
     }
-    var currentPage = 0
-    
-    var padding:CGFloat = 0.0
+    var textNomalColor = UIColor.grayColor()
+    var textSelectColor = getColor(36, green: 206, blue: 252)
  
     
     // Only override drawRect: if you perform custom drawing.
@@ -30,10 +41,10 @@ class LineTab: UIView,TabScrollDelegate{
     override func drawRect(rect: CGRect) {
        
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetStrokeColorWithColor(context, UIColor.redColor().CGColor)
+
         CGContextAddRect(context, CGRectMake(indicatorx+padding, self.frame.height-2, (self.frame.width/CGFloat(self.subviews.count))-padding*2, 2))
-        CGContextStrokePath(context)
-        CGContextFillPath(context)
+           lineColor.setFill()
+           CGContextFillPath(context)
         
     }
   
@@ -59,8 +70,8 @@ class LineTab: UIView,TabScrollDelegate{
           
             let tab = UIButton(frame:CGRectMake(width*CGFloat(i), 0, width, self.frame.height))
             tab.setTitle(titles[i], forState: UIControlState.Normal)
-            tab.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-            tab.setTitleColor(UIColor.redColor(), forState: UIControlState.Selected)
+            tab.setTitleColor(textNomalColor, forState: UIControlState.Normal)
+            tab.setTitleColor(textSelectColor, forState: UIControlState.Selected)
             tab.titleLabel?.font = UIFont.boldSystemFontOfSize(14.0)
             tab.titleLabel?.textAlignment = NSTextAlignment.Center
             tab.tag = i

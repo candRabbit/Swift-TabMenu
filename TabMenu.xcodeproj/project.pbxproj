@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D1804FD1C1FAF8600C37C53 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1804FC1C1FAF8600C37C53 /* Util.swift */; settings = {ASSET_TAGS = (); }; };
+		1D1804FF1C1FB53100C37C53 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1804FE1C1FB53100C37C53 /* MainViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		1D2543A01C06CF8C003CB409 /* TabLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D25439F1C06CF8C003CB409 /* TabLayout.swift */; };
 		1D2C04EB1C05672E0051D2A7 /* TabMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2C04EA1C05672E0051D2A7 /* TabMenu.swift */; };
 		1D2C04ED1C056DC30051D2A7 /* ViewPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2C04EC1C056DC30051D2A7 /* ViewPager.swift */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D1804FC1C1FAF8600C37C53 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		1D1804FE1C1FB53100C37C53 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1D25439F1C06CF8C003CB409 /* TabLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabLayout.swift; sourceTree = "<group>"; };
 		1D2C04EA1C05672E0051D2A7 /* TabMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabMenu.swift; sourceTree = "<group>"; };
 		1D2C04EC1C056DC30051D2A7 /* ViewPager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPager.swift; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 				1DDF697F1C0431B300E22509 /* TabTableViewController.swift */,
 				1D611AB71C06FD69003177BF /* NewsTableViewCell.swift */,
 				1D611AB91C06FE4C003177BF /* TextTableViewCell.swift */,
+				1D1804FC1C1FAF8600C37C53 /* Util.swift */,
+				1D1804FE1C1FB53100C37C53 /* MainViewController.swift */,
 			);
 			path = TabMenu;
 			sourceTree = "<group>";
@@ -193,6 +199,8 @@
 				1D2C04ED1C056DC30051D2A7 /* ViewPager.swift in Sources */,
 				60088DFA1C1F123F0071BB34 /* TabScrollDelegate.swift in Sources */,
 				1D611ABA1C06FE4C003177BF /* TextTableViewCell.swift in Sources */,
+				1D1804FF1C1FB53100C37C53 /* MainViewController.swift in Sources */,
+				1D1804FD1C1FAF8600C37C53 /* Util.swift in Sources */,
 				60088DFC1C1F12DA0071BB34 /* TabDelegate.swift in Sources */,
 				1DDF69801C0431B300E22509 /* TabTableViewController.swift in Sources */,
 				60088DF71C1F11280071BB34 /* LineTab.swift in Sources */,

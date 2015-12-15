@@ -9,7 +9,8 @@
 import UIKit
 
 class NormalTab: UIScrollView ,ViewPagerDelegate{
-
+    
+    var textColor = UIColor.whiteColor()
     
     init(frame: CGRect,with titles:[String]) {
         super.init(frame: frame)
@@ -30,7 +31,7 @@ class NormalTab: UIScrollView ,ViewPagerDelegate{
         for i in 0...titles.count - 1{
             let label = UILabel(frame: CGRectMake(CGFloat(i)*scrollWidth,0,scrollWidth,scrollHeight))
             label.font = UIFont.systemFontOfSize(18)
-            label.textColor = UIColor.whiteColor()
+            label.textColor = textColor
             label.textAlignment = NSTextAlignment.Center
             label.text = titles[i]
             addSubview(label)
