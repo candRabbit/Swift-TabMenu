@@ -64,8 +64,10 @@ class TabLayout: UICollectionView,UICollectionViewDelegate,UICollectionViewDataS
         
         if currentPage == indexPath.row{
             cell.textLabel.textColor = textSelectColor
+            cell.textLabel.font = UIFont.systemFontOfSize(16)
         }else{
             cell.textLabel.textColor = textNomalColor
+            cell.textLabel.font = UIFont.systemFontOfSize(14)
         }
        
         return cell
