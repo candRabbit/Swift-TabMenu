@@ -14,7 +14,16 @@
 
 **你可以根据你的需求来选择合适的样式,也可以进行扩展**
 
----
+```
+ //设置tab文字的默认颜色
+ tabMenu.textNomalColor
+ //设置tab文字选中的颜色
+ tabMenu.textSelectColor
+ //设置tab的背景色(样式为Normal时设置无效)
+ tabMenu.tabBackgroundColor
+ //设置下划线的颜色(样式为BottomLine有效)
+ tabMenu.lineColor
+```
 
 ```swift
 class ViewController: UIViewController,TabMenuDelegate{

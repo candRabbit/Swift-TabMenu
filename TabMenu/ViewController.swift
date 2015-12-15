@@ -22,6 +22,8 @@ class ViewController: UIViewController,TabMenuDelegate{
         tabMenu.initTab(style:style!,controller: self)
         self.view.addSubview(tabMenu)
         self.automaticallyAdjustsScrollViewInsets = false
+        
+       
       
         
    
