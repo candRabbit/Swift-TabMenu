@@ -1,10 +1,20 @@
 #### Swift-TabMenu
+**一个带有多种样式Tab可分页滑动的控件**
 ***
-![](https://github.com/candRabbit/Swift-TabMenu/blob/master/screenshot/tab-menu.gif)
+![](https://github.com/candRabbit/Swift-TabMenu/blob/master/screenshot/screenshot.gif)
 
-#####你可以放入更多的TAB,不用担心显示不出来,因为它是可以滑动的,并且它会根据你当前显示的page,滑动到合理的位置.
+####怎么使用
 
-####How to Use 
+**样式枚举**
+
++ TabMenuStyle
+  - Normal
+  - Scroll
+  - BottomLine
+
+**你可以根据你的需求来选择合适的样式,也可以进行扩展**
+
+---
 
 ```swift
 class ViewController: UIViewController,TabMenuDelegate{
@@ -14,7 +24,7 @@ class ViewController: UIViewController,TabMenuDelegate{
         super.viewDidLoad()
         let tabMenu = TabMenu(frame: CGRectMake(0, 64, self.view.bounds.width, self.view.bounds.height-64))
         tabMenu.delegate = self
-        tabMenu.initView(self)
+        tabMenu.initTab(style:style!,controller: self)
         self.view.addSubview(tabMenu)
         self.automaticallyAdjustsScrollViewInsets = false
      
