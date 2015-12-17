@@ -10,7 +10,7 @@ import UIKit
 
 class ViewPager: UIScrollView,UIScrollViewDelegate,TabDelegate{
 
-    
+    var tabMenuDelegate:TabMenuDelegate?
     var viewPagerDelegate:ViewPagerDelegate?
     var tabScrollDelegate:TabScrollDelegate?
     
@@ -88,6 +88,7 @@ class ViewPager: UIScrollView,UIScrollViewDelegate,TabDelegate{
             
             currentPage = Int(nextPage)
             self.viewPagerDelegate?.scrolled(currentPage)
+            tabMenuDelegate?.showIndex(currentPage)
         }
         tabScrollDelegate?.scrollViewDidScroll(scrollView)
 
@@ -98,9 +99,9 @@ class ViewPager: UIScrollView,UIScrollViewDelegate,TabDelegate{
     
     
     func showIndex(index: Int) {
-        
         currentPage = index
         setContentOffset(CGPointMake(CGFloat(index)*self.frame.width, 0), animated: true)
+        tabMenuDelegate?.showIndex(currentPage)
     }
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {

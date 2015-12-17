@@ -10,7 +10,8 @@ import UIKit
 
 class TabMenu: UIView {
 
-    var delegate:TabMenuDelegate?
+    var delegate:TabMenuDataSourceDelegate?
+    var tabMenuDelegate:TabMenuDelegate?
     
     var textNomalColor = UIColor.grayColor()
     var textSelectColor = getColor(36, green: 206, blue: 252)
@@ -71,7 +72,7 @@ class TabMenu: UIView {
                 addSubview(lineTab!)
             
         }
-        
+        viewPager?.tabMenuDelegate = tabMenuDelegate
         addSubview(viewPager!)
     
     }
@@ -83,10 +84,15 @@ class TabMenu: UIView {
     
 }
 
-protocol TabMenuDelegate{
+protocol TabMenuDataSourceDelegate{
     
     func getTitles()->[String]
     func getControllers()->[UIViewController]
+}
+
+protocol TabMenuDelegate{
+    
+    func showIndex(index:Int)
 }
 
 enum TabMenuStyle{

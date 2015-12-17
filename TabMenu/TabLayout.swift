@@ -67,7 +67,9 @@ class TabLayout: UICollectionView,UICollectionViewDelegate,UICollectionViewDataS
             cell.textLabel.font = UIFont.systemFontOfSize(16)
         }else{
             cell.textLabel.textColor = textNomalColor
+
             cell.textLabel.font = UIFont.systemFontOfSize(14)
+
         }
        
         return cell

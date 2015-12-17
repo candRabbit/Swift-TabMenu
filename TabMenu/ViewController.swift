@@ -11,7 +11,7 @@ import UIKit
 let width = UIScreen.mainScreen().bounds.width
 
 
-class ViewController: UIViewController,TabMenuDelegate{
+class ViewController: UIViewController,TabMenuDataSourceDelegate,TabMenuDelegate{
 
     var style:TabMenuStyle?
    
@@ -19,14 +19,16 @@ class ViewController: UIViewController,TabMenuDelegate{
         super.viewDidLoad()
         let tabMenu = TabMenu(frame: CGRectMake(0, 64, self.view.bounds.width, self.view.bounds.height-64))
         tabMenu.delegate = self
+        tabMenu.tabMenuDelegate = self
         tabMenu.initTab(style:style!,controller: self)
+        
         self.view.addSubview(tabMenu)
         self.automaticallyAdjustsScrollViewInsets = false
-        
-       
-      
-        
-   
+
+    }
+    
+    func showIndex(index: Int) {
+    
     }
     
     func getTitles() -> [String] {
