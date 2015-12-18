@@ -65,8 +65,9 @@ class SegmentTab:BaseTabView {
     }
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
-        
-       super.scrollViewDidScroll(scrollView)
+        super.scrollViewDidScroll(scrollView)
+       indicatorx = (scrollView.contentOffset.x/scrollView.frame.width)*((self.frame.width-padding*2)/CGFloat(tabCount))
+      
        controlViewAlpha = (scrollView.contentOffset.x/scrollView.frame.width) - CGFloat(currentPage)
    
 

@@ -73,9 +73,10 @@ class TabMenu: UIView {
                 addSubview(lineTab!)
             
             case .Segment:
-                tabRect = CGRectMake(0, 0, 200, 30)
+                tabRect = CGRectMake(0, 0, 200, 35)
                 viewPager!.frame = CGRectMake(0, 0, self.bounds.width, self.bounds.height)
                 segmentTab = SegmentTab(frame: tabRect,with: delegate!.getTitles())
+                segmentTab!.textNomalColor = UIColor.whiteColor()
                 segmentTab?.tabDelegate = viewPager
                 viewPager?.tabScrollDelegate = segmentTab
                 controller.navigationItem.titleView = segmentTab
