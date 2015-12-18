@@ -31,6 +31,7 @@ class ViewPager: UIScrollView,UIScrollViewDelegate,TabDelegate{
         self.delegate = self
         initController()
         initSetting()
+      
         
     }
     
@@ -83,8 +84,10 @@ class ViewPager: UIScrollView,UIScrollViewDelegate,TabDelegate{
            actionControllers.append(viewController)
         }
         
-        let nextPage = scrollView.contentOffset.x/scrollView.bounds.width
-        if (currentPage != Int(nextPage)) && ((scrollView.contentOffset.x%scrollView.bounds.width) == 0){
+        let nextPage = Int(floor(scrollView.contentOffset.x/scrollView.frame.width - 0.5)+1)
+        
+        
+        if (currentPage != Int(nextPage)){
             
             currentPage = Int(nextPage)
             self.viewPagerDelegate?.scrolled(currentPage)
@@ -95,8 +98,7 @@ class ViewPager: UIScrollView,UIScrollViewDelegate,TabDelegate{
         
     }
     
-    
-    
+
     
     func showIndex(index: Int) {
         currentPage = index
@@ -106,6 +108,7 @@ class ViewPager: UIScrollView,UIScrollViewDelegate,TabDelegate{
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
        tabScrollDelegate?.scrollViewDidEndDecelerating(scrollView)
+        
     }
 }
 

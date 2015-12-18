@@ -30,6 +30,8 @@ class MainViewController: UITableViewController {
             controller.style =  TabMenuStyle.Scroll
             case "BottomLine":
             controller.style =  TabMenuStyle.BottomLine
+            case "segment":
+            controller.style = TabMenuStyle.Segment
         default:
             break
         }

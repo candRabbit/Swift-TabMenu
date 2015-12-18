@@ -22,6 +22,7 @@ class TabMenu: UIView {
     private var tabLayout:TabLayout?
     private var nomalTab:NormalTab?
     private var lineTab:LineTab?
+    private var segmentTab:SegmentTab?
     //you can set tab height
     var tabViewHeight:CGFloat = 44
     
@@ -71,6 +72,14 @@ class TabMenu: UIView {
                 viewPager?.tabScrollDelegate = lineTab
                 addSubview(lineTab!)
             
+            case .Segment:
+                tabRect = CGRectMake(0, 0, 200, 30)
+                viewPager!.frame = CGRectMake(0, 0, self.bounds.width, self.bounds.height)
+                segmentTab = SegmentTab(frame: tabRect,with: delegate!.getTitles())
+                segmentTab?.tabDelegate = viewPager
+                viewPager?.tabScrollDelegate = segmentTab
+                controller.navigationItem.titleView = segmentTab
+            
         }
         viewPager?.tabMenuDelegate = tabMenuDelegate
         addSubview(viewPager!)
@@ -97,6 +106,6 @@ protocol TabMenuDelegate{
 
 enum TabMenuStyle{
     
-    case Normal,Scroll,BottomLine
+    case Normal,Scroll,BottomLine,Segment
 }
 

@@ -40,6 +40,7 @@ class TabLayout: UICollectionView,UICollectionViewDelegate,UICollectionViewDataS
         self.delegate = self
         self.dataSource = self
         self.showsHorizontalScrollIndicator  = false
+        self.contentInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
    
     }
     
@@ -57,7 +58,7 @@ class TabLayout: UICollectionView,UICollectionViewDelegate,UICollectionViewDataS
     }
     
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("tabTitleCell", forIndexPath: indexPath) as! TabCollectionViewCell
         cell.textLabel?.text = titles![indexPath.row]
@@ -82,7 +83,7 @@ class TabLayout: UICollectionView,UICollectionViewDelegate,UICollectionViewDataS
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        scrolled(indexPath.row)
+       // scrolled(indexPath.row)
         tabDelegate?.showIndex(indexPath.row)
        
     }
